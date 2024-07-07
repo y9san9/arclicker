@@ -9,9 +9,9 @@ fun AddSettingViewModel(
     scope: CoroutineScope,
     clicks: ClicksMiddleware
 ): AddSettingViewModel {
-    val env = object : AddSettingViewModel.Env {
+    val adapter = object : AddSettingViewModel.Adapter {
         override val scope = scope
         override fun addAmount(value: ClicksAmount) { clicks.state.value += value }
     }
-    return AddSettingViewModel(env)
+    return AddSettingViewModel(adapter)
 }

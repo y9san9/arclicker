@@ -9,10 +9,10 @@ fun IncreaseSettingViewModel(
     scope: CoroutineScope,
     mainPreferences: MainSharedPreferencesWrapper,
 ): IncreaseSettingViewModel {
-    val env = object : IncreaseSettingViewModel.Env {
+    val adapter = object : IncreaseSettingViewModel.Adapter {
         override val scope = scope
         override fun loadInitialValue(): IncreaseAmount = mainPreferences.loadIncreaseAmount()
         override fun saveNewValue(amount: IncreaseAmount) = mainPreferences.saveIncreaseAmount(amount)
     }
-    return IncreaseSettingViewModel(env)
+    return IncreaseSettingViewModel(adapter)
 }

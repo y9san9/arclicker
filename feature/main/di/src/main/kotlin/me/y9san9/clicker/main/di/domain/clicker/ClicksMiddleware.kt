@@ -9,10 +9,10 @@ fun ClicksMiddleware(
     scope: CoroutineScope,
     mainPreferences: MainSharedPreferencesWrapper
 ): ClicksMiddleware {
-    val env = object : ClicksMiddleware.Env {
+    val adapter = object : ClicksMiddleware.Adapter {
         override val scope = scope
         override fun loadClicksAmount(): ClicksAmount = mainPreferences.loadClicksAmount()
         override fun saveClicksAmount(value: ClicksAmount) { mainPreferences.saveClicksValue(value) }
     }
-    return ClicksMiddleware(env)
+    return ClicksMiddleware(adapter)
 }

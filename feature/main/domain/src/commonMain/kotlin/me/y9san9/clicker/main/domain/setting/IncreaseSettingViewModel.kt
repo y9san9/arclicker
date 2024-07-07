@@ -9,8 +9,8 @@ import me.y9san9.clicker.main.ClickableButton
 import me.y9san9.clicker.main.IncreaseAmount
 import me.y9san9.stdlib.validate.ValidatedValue
 
-class IncreaseSettingViewModel(private val env: Env) {
-    val lastSaved = MutableStateFlow(env.loadInitialValue())
+class IncreaseSettingViewModel(private val adapter: Adapter) {
+    val lastSaved = MutableStateFlow(adapter.loadInitialValue())
 
     val increaseAmount: MutableStateFlow<ValidatedValue<String, IncreaseAmount>>
 
@@ -30,17 +30,17 @@ class IncreaseSettingViewModel(private val env: Env) {
                 validated.value == lastSaved.value -> ClickableButton.Disabled
                 else -> buttonOf(validated.value)
             }
-        }.launchIn(env.scope)
+        }.launchIn(adapter.scope)
     }
 
     private fun buttonOf(amount: IncreaseAmount): ClickableButton {
         return ClickableButton.Enabled {
-            env.saveNewValue(amount)
+            adapter.saveNewValue(amount)
             lastSaved.value = amount
         }
     }
 
-    interface Env {
+    interface Adapter {
         val scope: CoroutineScope
         fun loadInitialValue(): IncreaseAmount
         fun saveNewValue(amount: IncreaseAmount)
