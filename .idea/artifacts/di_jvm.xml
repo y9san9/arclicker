@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="di-jvm">
+    <output-path>$PROJECT_DIR$/feature/main/di/build/libs</output-path>
+    <root id="archive" name="di-jvm.jar" />
+  </artifact>
+</component>

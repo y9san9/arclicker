@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="stdlib-extensions-jvm">
+    <output-path>$PROJECT_DIR$/libs/stdlib-extensions/build/libs</output-path>
+    <root id="archive" name="stdlib-extensions-jvm.jar">
+      <element id="module-output" name="arclicker.libs.stdlib-extensions.jvmMain" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="types-jvm">
+    <output-path>$PROJECT_DIR$/feature/main/types/build/libs</output-path>
+    <root id="archive" name="types-jvm.jar">
+      <element id="module-output" name="arclicker.feature.main.types.jvmMain" />
+    </root>
+  </artifact>
+</component>
