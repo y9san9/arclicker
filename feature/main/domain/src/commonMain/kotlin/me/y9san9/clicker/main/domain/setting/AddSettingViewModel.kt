@@ -7,8 +7,8 @@ import me.y9san9.clicker.main.ClicksAmount
 import me.y9san9.stdlib.validate.ValidatedValue
 
 class AddSettingViewModel(private val adapter: Adapter) {
-    val clicksAmount: MutableStateFlow<ValidatedValue<String, ClicksAmount>> =
-        MutableStateFlow(ValidatedValue.Success("", ClicksAmount.Zero))
+    private val zero = ValidatedValue.Success("", ClicksAmount.Zero)
+    val clicksAmount: MutableStateFlow<ValidatedValue<String, ClicksAmount>> = MutableStateFlow(zero)
 
     private val _addButton: MutableStateFlow<ClickableButton> = MutableStateFlow(ClickableButton.Disabled)
     val addButton: StateFlow<ClickableButton> = _addButton
@@ -24,7 +24,10 @@ class AddSettingViewModel(private val adapter: Adapter) {
     }
 
     private fun addButtonOf(value: ClicksAmount): ClickableButton {
-        return ClickableButton.Enabled(onClick = { adapter.addAmount(value) })
+        return ClickableButton.Enabled {
+            adapter.addAmount(value)
+            clicksAmount.value = zero
+        }
     }
 
     interface Adapter {

@@ -14,7 +14,7 @@ inline fun MainContent(
 ) {
     Column(Modifier.fillMaxSize()) {
         Box(
-            modifier = Modifier.weight(1f).fillMaxSize(),
+            modifier = Modifier.weight(1f).fillMaxWidth(),
             contentAlignment = Alignment.Center
         ) {
             clicker()

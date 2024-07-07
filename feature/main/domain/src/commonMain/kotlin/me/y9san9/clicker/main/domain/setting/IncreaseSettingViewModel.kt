@@ -37,6 +37,7 @@ class IncreaseSettingViewModel(private val adapter: Adapter) {
         return ClickableButton.Enabled {
             adapter.saveNewValue(amount)
             lastSaved.value = amount
+            _saveButton.value = ClickableButton.Disabled
         }
     }
 

@@ -1,15 +1,13 @@
 package me.y9san9.clicker.main.ui.setting
 
 import androidx.compose.animation.Crossfade
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.stringResource
@@ -28,7 +26,7 @@ fun AddSettingContent(
     onValueChange: (ValidatedString<ClicksAmount>) -> Unit,
     add: ClickableButton
 ) {
-    Row(Modifier.padding(horizontal = 20.dp)) {
+    Column(Modifier.padding(horizontal = 20.dp)) {
         TextField(
             value = value.input,
             placeholder = { Text("0", Modifier.alpha(0.5f)) },
@@ -36,18 +34,20 @@ fun AddSettingContent(
                 val validated = validateInt(update).map(::ClicksAmount)
                 onValueChange(validated)
             },
-            modifier = Modifier.weight(1f),
+            label = { Text(stringResource(R.string.enter_amount_to_add)) },
+            modifier = Modifier.fillMaxWidth(1f),
             singleLine = true
         )
-        Spacer(Modifier.width(20.dp))
-        Crossfade(add is ClickableButton.Enabled) { enabled ->
+        Spacer(Modifier.height(5.dp))
+        Crossfade(add is ClickableButton.Enabled, Modifier.align(Alignment.CenterHorizontally)) { enabled ->
             Button(
                 enabled = enabled,
                 onClick = {
                     if (add is ClickableButton.Enabled) {
                         add.onClick()
                     }
-                }
+                },
+                contentPadding = PaddingValues(horizontal = 75.dp)
             ) {
                 Text(
                     text = stringResource(R.string.add),
