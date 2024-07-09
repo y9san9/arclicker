@@ -1,3 +1,5 @@
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 pluginManagement {
     repositories {
         google()
@@ -22,12 +24,13 @@ val features = listOf(
 )
 
 for (feature in features) {
+    include(":feature:$feature:adapter")
     include(":feature:$feature:data")
-    include(":feature:$feature:di")
     include(":feature:$feature:domain")
     include(":feature:$feature:ui")
-    include(":feature:$feature:types")
 }
 
 include(":libs:stdlib-extensions")
+include(":core:adapter")
 include(":core:ui")
+include(":core:domain")

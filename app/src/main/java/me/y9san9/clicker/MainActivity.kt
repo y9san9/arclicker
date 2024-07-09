@@ -7,7 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import me.y9san9.clicker.main.di.ui.MainContent
+import me.y9san9.clicker.main.adapter.ui.MainContent
 import me.y9san9.clicker.ui.theme.ClickerTheme
 
 class MainActivity : ComponentActivity() {

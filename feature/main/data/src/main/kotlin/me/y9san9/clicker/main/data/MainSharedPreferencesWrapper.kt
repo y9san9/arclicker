@@ -1,10 +1,14 @@
 package me.y9san9.clicker.main.data
 
+import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
-import me.y9san9.clicker.main.ClicksAmount
-import me.y9san9.clicker.main.IncreaseAmount
+import me.y9san9.clicker.main.data.types.ClicksAmount
+import me.y9san9.clicker.main.data.types.IncreaseAmount
 
 class MainSharedPreferencesWrapper(private val prefs: SharedPreferences) {
+    constructor(context: Context) : this(context.getSharedPreferences("main", MODE_PRIVATE))
+
     fun saveClicksValue(amount: ClicksAmount) {
         prefs.edit().putInt("clicks.value", amount.int).apply()
     }

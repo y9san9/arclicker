@@ -48,7 +48,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:main:di"))
+    implementation(projects.feature.main.adapter)
+
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)

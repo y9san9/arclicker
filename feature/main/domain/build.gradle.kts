@@ -4,11 +4,10 @@ plugins {
 }
 
 kotlin {
+    jvmToolchain(8)
     jvm()
 }
 
 dependencies {
-    commonMainImplementation(libs.coroutines.core)
-    commonMainImplementation(project(":feature:main:types"))
-    commonMainImplementation(project(":libs:stdlib-extensions"))
+    commonMainApi(projects.core.domain)
 }

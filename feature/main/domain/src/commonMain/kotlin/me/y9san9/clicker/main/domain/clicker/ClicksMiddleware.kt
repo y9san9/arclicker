@@ -4,7 +4,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import me.y9san9.clicker.main.ClicksAmount
+import me.y9san9.clicker.main.domain.types.ClicksAmount
 
 class ClicksMiddleware(adapter: Adapter) {
     val state: MutableStateFlow<ClicksAmount> = MutableStateFlow(adapter.loadClicksAmount())

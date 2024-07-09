@@ -13,11 +13,11 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import me.y9san9.clicker.R
-import me.y9san9.clicker.main.ClickableButton
-import me.y9san9.clicker.main.ClicksAmount
-import me.y9san9.stdlib.validate.ValidatedString
-import me.y9san9.stdlib.validate.map
-import me.y9san9.stdlib.validate.validateInt
+import me.y9san9.clicker.core.ui.button.ClickableButton
+import me.y9san9.clicker.core.ui.validate.ValidatedString
+import me.y9san9.clicker.core.ui.validate.map
+import me.y9san9.clicker.core.ui.validate.validateInt
+import me.y9san9.clicker.main.ui.types.ClicksAmount
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

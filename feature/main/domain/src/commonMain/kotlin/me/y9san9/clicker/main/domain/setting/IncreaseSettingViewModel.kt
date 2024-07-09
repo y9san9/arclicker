@@ -5,9 +5,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import me.y9san9.clicker.main.ClickableButton
-import me.y9san9.clicker.main.IncreaseAmount
-import me.y9san9.stdlib.validate.ValidatedValue
+import me.y9san9.clicker.core.domain.button.ClickableButton
+import me.y9san9.clicker.core.domain.validate.ValidatedValue
+import me.y9san9.clicker.main.domain.types.IncreaseAmount
 
 class IncreaseSettingViewModel(private val adapter: Adapter) {
     val lastSaved = MutableStateFlow(adapter.loadInitialValue())
@@ -21,7 +21,7 @@ class IncreaseSettingViewModel(private val adapter: Adapter) {
     }
 
     private val _saveButton: MutableStateFlow<ClickableButton> = MutableStateFlow(ClickableButton.Disabled)
-    val saveButton: StateFlow<ClickableButton> = _saveButton
+    val save: StateFlow<ClickableButton> = _saveButton
 
     init {
         increaseAmount.onEach { validated ->

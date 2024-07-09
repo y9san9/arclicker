@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 inline fun MainContent(
     clicker: @Composable () -> Unit,
     addSetting: @Composable () -> Unit,
-    increase: @Composable () -> Unit
+    increaseSetting: @Composable () -> Unit
 ) {
     Column(Modifier.fillMaxSize()) {
         Box(
@@ -21,7 +21,7 @@ inline fun MainContent(
         }
         addSetting()
         Spacer(Modifier.height(20.dp))
-        increase()
+        increaseSetting()
         Spacer(Modifier.height(40.dp))
     }
 }

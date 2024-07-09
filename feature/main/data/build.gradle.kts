@@ -18,6 +18,5 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:main:types"))
-    implementation(libs.coroutines.core)
+    api(libs.coroutines.core)
 }

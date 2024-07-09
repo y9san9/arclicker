@@ -26,10 +26,8 @@ android {
 }
 
 dependencies {
-    implementation(libs.coroutines.core)
-    implementation(libs.compose.ui)
-    implementation(libs.compose.material3)
-    implementation(libs.lifecycle.viewmodel.compose)
-    implementation(project(":feature:main:types"))
-    implementation(project(":libs:stdlib-extensions"))
+    api(libs.coroutines.core)
+    api(libs.compose.ui)
+    api(libs.compose.material3)
+    api(projects.libs.stdlibExtensions)
 }
